@@ -1,6 +1,6 @@
 sudo docker stop tf-serving && sudo docker rm tf-serving
 
-# 启动容器（挂载模型目录和 GPU）
+# 启动容器（模型已嵌入镜像，仅挂载 GPU）
 
 docker run -d \
   --name tf-serving \
@@ -9,8 +9,6 @@ docker run -d \
   -e TF_CPP_VMODULE=* \
   -e TF_CPP_LOG_THREAD_ID=1 \
   -e TF_CPP_LOG_TIMESTAMP=1 \
-   -v /data/iflyweb/ddzhang6/tf-gpu/models:/models \
-  -v $(pwd)/models.config:/models/models.config \
   -p 8500:8500 -p 8501:8501 \
   --gpus 'device=1' \
   -e 'TF_FORCE_GPU_ALLOW_GROWTH=true'  \
