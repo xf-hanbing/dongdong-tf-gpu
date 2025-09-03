@@ -114,7 +114,7 @@ dmypy.json
 .pyre/
 
 # TensorFlow specific
-*.pb
+# *.pb - now managed by Git LFS
 *.pbtxt
 *.ckpt
 *.ckpt.*
